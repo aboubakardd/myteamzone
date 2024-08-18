@@ -6,10 +6,16 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use Spatie\Permission\Traits\HasRoles;
+use Spatie\Permission\Models\Role;
+use Spatie\Permission\Models\Permission;
+use App\Models\Joueur;
+use App\Models\orderDetails;
+
 
 class User extends Authenticatable
 {
-    use HasFactory, Notifiable;
+    use HasFactory, Notifiable, HasRoles;
 
     /**
      * The attributes that are mass assignable.
@@ -20,6 +26,9 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'dateDeNaissance',
+        'profile_photo_path',
+        'typeUser',
     ];
 
     /**
@@ -44,4 +53,30 @@ class User extends Authenticatable
             'password' => 'hashed',
         ];
     }
+
+    public function parente()
+    {
+        return $this->hasOne(Parente::class);
+    }
+
+    public function children()
+    {
+        return $this->hasManyThrough(Joueur::class, Parente::class, 'user_id', 'parente_id');
+    }
+
+    public function enfants()
+    {
+        return $this->hasMany(Joueur::class, 'parent_id');
+    }
+
+    public function user()
+{
+    return $this->belongsTo(User::class);
+}
+
+public function orderDetails()
+{
+    return $this->hasMany(OrderDetail::class);
+}
+
 }

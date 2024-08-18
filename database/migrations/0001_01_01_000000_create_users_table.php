@@ -17,6 +17,9 @@ return new class extends Migration
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
+            $table->date('dateDeNaissance')->nullable()->default('2000-01-01')->change();
+            $table->string('profile_photo_path', 2048)->nullable();
+            $table->enum('typeUser', ['joueur', 'entraineur', 'admin', 'parent'])->default('joueur');
             $table->rememberToken();
             $table->timestamps();
         });

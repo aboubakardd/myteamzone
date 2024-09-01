@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Procéder au paiement</title>
-  
 </head>
 <body>
     <div class="container mt-5">
@@ -24,35 +23,33 @@
         @endif
 
         <form action="{{ route('stripe.payment') }}" method="post" id="payment-form">
-            @csrf
-            <div class="form-row">
-                <label for="name">Nom</label>
-                <input type="text" id="name" name="name" class="form-control" required>
-            </div>
-            <div class="form-row mt-2">
-                <label for="first_name">Prénom</label>
-                <input type="text" id="first_name" name="first_name" class="form-control" required>
-            </div>
-            <div class="form-row mt-2">
-                <label for="address">Adresse de livraison</label>
-                <input type="text" id="address" name="address" class="form-control" required>
-            </div>
-            <div class="form-row mt-2">
-                <label for="email">Email de confirmation</label>
-                <input type="email" id="email" name="email" class="form-control" required>
-            </div>
-            <div class="form-row mt-3">
-                <label for="card-element">Carte de crédit ou débit</label>
-                <div id="card-element">
-                    <!-- A Stripe Element will be inserted here. -->
-                </div>
+    @csrf
+    <div class="form-row">
+        <label for="name">Nom</label>
+        <input type="text" id="name" name="name" class="form-control" required>
+    </div>
+    <div class="form-row mt-2">
+        <label for="first_name">Prénom</label>
+        <input type="text" id="first_name" name="first_name" class="form-control" required>
+    </div>  
+    <div class="form-row mt-2">
+        <label for="address">Adresse de livraison</label>
+        <input type="text" id="address" name="address" class="form-control" required>
+    </div>
+    <div class="form-row mt-2">
+        <label for="email">Email de confirmation</label>
+        <input type="email" id="email" name="email" class="form-control" required>
+    </div>
+    <div class="form-row mt-3">
+        <label for="card-element">Carte de crédit ou débit</label>
+        <div id="card-element">
+            <!-- A Stripe Element will be inserted here. -->
+        </div>
+        <div id="card-errors" role="alert"></div>
+    </div>
 
-                <!-- Used to display form errors. -->
-                <div id="card-errors" role="alert"></div>
-            </div>
-
-            <button type="submit" class="btn btn-success mt-3">Payer</button>
-        </form>
+    <button type="submit" class="btn btn-success mt-3">Payer</button>
+</form>
 
         <script src="https://js.stripe.com/v3/"></script>
         <script>
@@ -90,7 +87,6 @@
             var form = document.getElementById('payment-form');
             form.addEventListener('submit', function(event) {
                 event.preventDefault();
-
                 stripe.createToken(card).then(function(result) {
                     if (result.error) {
                         var errorElement = document.getElementById('card-errors');
@@ -108,7 +104,6 @@
                 hiddenInput.setAttribute('name', 'stripeToken');
                 hiddenInput.setAttribute('value', token.id);
                 form.appendChild(hiddenInput);
-
                 form.submit();
             }
         </script>

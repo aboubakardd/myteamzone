@@ -7,9 +7,12 @@
     "require": {
         "php": "^8.2",
         "darryldecode/cart": "^4.2",
+        "guzzlehttp/guzzle": "^7.8",
         "jeroennoten/laravel-adminlte": "^3.12",
         "laravel/framework": "^11.9",
+        "laravel/sanctum": "^4.0",
         "laravel/tinker": "^2.9",
+        "nahid/talk": "^1.0",
         "spatie/laravel-permission": "^6.9",
         "stripe/stripe-php": "^15.7"
     },

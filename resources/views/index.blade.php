@@ -14,9 +14,10 @@
                             <div class="row">
                                 <div class="col-lg-12">
                                     <div class="hs-text">
-                                        <h4>30 september 2019 / 9:00 GMT+0000</h4>
-                                        <h2>Airrosten VS Lerenort in London</h2>
-                                        <a href="#" class="primary-btn">More Details</a>
+                                          <!-- Prochain événement sera affiché ici -->
+                                    <div id="next-event">
+                                        <p>Chargement du prochain événement...</p>
+                                    </div>
                                     </div>
                                 </div>
                             </div>
@@ -28,13 +29,37 @@
     </section>
     <!-- Hero Section End -->
 
+
+    <script>
+    document.addEventListener('DOMContentLoaded', function () {
+        fetch('/api/next-event')
+            .then(response => response.json())
+            .then(data => {
+                const eventContainer = document.getElementById('next-event');
+                if (data.message) {
+                    eventContainer.innerHTML = `<p>${data.message}</p>`;
+                } else {
+                    eventContainer.innerHTML = `
+                        <h2>${data.title}</h2>
+                        <p>${data.description}</p>
+                        <p><strong>Date :</strong> ${new Date(data.start_time).toLocaleString()}</p>
+                        <p><strong>Lieu :</strong> ${data.location}</p>
+                    `;
+                }
+            })
+            .catch(error => {
+                document.getElementById('next-event').innerHTML = `<p>Erreur lors de la récupération de l'événement</p>`;
+            });
+    });
+</script>
+
     <!-- Trending News Section Begin -->
     <div class="trending-news-section">
         <div class="container">
-            <div class="tn-title"><i class="fa fa-caret-right"></i> Trending News</div>
+            <div class="tn-title"><i class="fa fa-caret-right"></i> Tendances</div>
             <div class="news-slider owl-carousel">
-                <div class="nt-item">Vinyl Banners With Its Different Types Kinds And Applications</div>
-                <div class="nt-item">Banners With Its Different Types Kinds And Applications</div>
+                <div class="nt-item">Nouvelle recrue pour l'équipe</div>
+                <div class="nt-item">Prochain match crucial contre Anderlecht</div>
             </div>
         </div>
     </div>
@@ -52,17 +77,16 @@
                                 <tbody>
                                     <tr>
                                         <td class="left-team">
-                                            <img src="img/match/tf-1.jpg" alt="">
-                                            <h6>Cambodia</h6>
+                                            
+                                            <h6>Royal Fc</h6>
                                         </td>
                                         <td class="mt-content">
-                                            <div class="mc-op">Ucraina vs England</div>
                                             <h4>VS</h4>
                                             <div class="mc-op">15 September 2019</div>
                                         </td>
                                         <td class="right-team">
-                                            <img src="img/match/tf-2.jpg" alt="">
-                                            <h6>Qatar</h6>
+                                            
+                                            <h6>Anderlecht</h6>
                                         </td>
                                     </tr>
                                 </tbody>
@@ -72,19 +96,18 @@
                             <table>
                                 <tbody>
                                     <tr>
-                                        <td class="left-team">
-                                            <img src="img/match/tf-3.jpg" alt="">
-                                            <h6>Australia</h6>
-                                        </td>
-                                        <td class="mt-content">
-                                            <div class="mc-op">Ucraina vs England</div>
-                                            <h4>VS</h4>
-                                            <div class="mc-op">15 September 2019</div>
-                                        </td>
-                                        <td class="right-team">
-                                            <img src="img/match/tf-4.jpg" alt="">
-                                            <h6>Iraq</h6>
-                                        </td>
+                                    <td class="left-team">
+                                        
+                                        <h6>Ixelles</h6>
+                                    </td>
+                                    <td class="mt-content">
+                                        <h4>VS</h4>
+                                        <div class="mc-op">20 Août 2024</div>
+                                    </td>
+                                    <td class="right-team">
+                                        
+                                        <h6>Royal Fc</h6>
+                                    </td>
                                     </tr>
                                 </tbody>
                             </table>
@@ -94,17 +117,17 @@
                                 <tbody>
                                     <tr>
                                         <td class="left-team">
-                                            <img src="img/match/tf-5.jpg" alt="">
-                                            <h6>Ucraina</h6>
+                                            
+                                            <h6>Royal Fc</h6>
                                         </td>
                                         <td class="mt-content">
-                                            <div class="mc-op">Ucraina vs England</div>
+                                            
                                             <h4>VS</h4>
                                             <div class="mc-op">15 September 2019</div>
                                         </td>
                                         <td class="right-team">
-                                            <img src="img/match/tf-6.jpg" alt="">
-                                            <h6>Jordan</h6>
+                                            
+                                            <h6>Molembeek</h6>
                                         </td>
                                     </tr>
                                 </tbody>
@@ -120,17 +143,17 @@
                                 <tbody>
                                     <tr>
                                         <td class="left-team">
-                                            <img src="img/match/tf-1.jpg" alt="">
-                                            <h6>Darussalam</h6>
+                                           
+                                            <h6>Royal Fc</h6>
                                         </td>
                                         <td class="mt-content">
-                                            <div class="mc-op">Ucraina vs England</div>
+                                            
                                             <h4>1 : 2</h4>
                                             <div class="mc-op">15 September 2019</div>
                                         </td>
                                         <td class="right-team">
-                                            <img src="img/match/tf-2.jpg" alt="">
-                                            <h6>Ucraina</h6>
+                                            
+                                            <h6>Berchem</h6>
                                         </td>
                                     </tr>
                                 </tbody>
@@ -141,17 +164,17 @@
                                 <tbody>
                                     <tr>
                                         <td class="left-team">
-                                            <img src="img/match/tf-3.jpg" alt="">
-                                            <h6>Japan</h6>
+                                            
+                                            <h6>Bruges</h6>
                                         </td>
                                         <td class="mt-content">
-                                            <div class="mc-op">Ucraina vs England</div>
+                                           
                                             <h4>1 : 2</h4>
                                             <div class="mc-op">15 September 2019</div>
                                         </td>
                                         <td class="right-team">
-                                            <img src="img/match/tf-4.jpg" alt="">
-                                            <h6>Philippines</h6>
+                                            
+                                            <h6>Royal Fc</h6>
                                         </td>
                                     </tr>
                                 </tbody>
@@ -161,19 +184,19 @@
                             <table>
                                 <tbody>
                                     <tr>
-                                        <td class="left-team">
-                                            <img src="img/match/tf-5.jpg" alt="">
-                                            <h6>Kyrgyz</h6>
-                                        </td>
-                                        <td class="mt-content">
-                                            <div class="mc-op">Ucraina vs England</div>
-                                            <h4>1 : 2</h4>
-                                            <div class="mc-op">15 September 2019</div>
-                                        </td>
-                                        <td class="right-team">
-                                            <img src="img/match/tf-6.jpg" alt="">
-                                            <h6 class="mi-right">Pakistan</h6>
-                                        </td>
+                                    <td class="left-team">
+                                        
+                                        <h6>As Monaco</h6>
+                                    </td>
+                                    <td class="mt-content">
+                                        
+                                        <h4>2 : 1</h4>
+                                        <div class="mc-op">15 Août 2024</div>
+                                    </td>
+                                    <td class="right-team">
+                                        
+                                        <h6>Royal Fc</h6>
+                                    </td>
                                     </tr>
                                 </tbody>
                             </table>
@@ -185,268 +208,149 @@
     </section>
     <!-- Match Section End -->
 
-    <!-- Soccer Section Begin -->
-    <section class="soccer-section">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12 p-0">
-                    <div class="section-title">
-                        <h3>Soccer <span>Feed</span></h3>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-lg-3 col-sm-6 p-0">
-                    <div class="soccer-item set-bg" data-setbg="img/soccer/soccer-1.jpg">
-                        <div class="si-tag">Soccer</div>
-                        <div class="si-text">
-                            <h5><a href="#">Counting Your Chicken Before They Hatch</a></h5>
-                            <ul>
-                                <li><i class="fa fa-calendar"></i> May 19, 2019</li>
-                                <li><i class="fa fa-edit"></i> 3 Comment</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-sm-6 p-0">
-                    <div class="soccer-item set-bg" data-setbg="img/soccer/soccer-2.jpg">
-                        <div class="si-tag">Soccer</div>
-                        <div class="si-text">
-                            <h5><a href="#">Hypnotherapy For Motivation Getting The Drive Back</a></h5>
-                            <ul>
-                                <li><i class="fa fa-calendar"></i> May 19, 2019</li>
-                                <li><i class="fa fa-edit"></i> 3 Comment</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-sm-6 p-0">
-                    <div class="soccer-item set-bg" data-setbg="img/soccer/soccer-3.jpg">
-                        <div class="si-tag">Soccer</div>
-                        <div class="si-text">
-                            <h5><a href="#">Astronomy Binoculars A Great Alternative</a></h5>
-                            <ul>
-                                <li><i class="fa fa-calendar"></i> May 19, 2019</li>
-                                <li><i class="fa fa-edit"></i> 3 Comment</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-sm-6 p-0">
-                    <div class="soccer-item set-bg" data-setbg="img/soccer/soccer-4.jpg">
-                        <div class="si-tag">Soccer</div>
-                        <div class="si-text">
-                            <h5><a href="#">Decorate For Less With Art Posters</a></h5>
-                            <ul>
-                                <li><i class="fa fa-calendar"></i> May 19, 2019</li>
-                                <li><i class="fa fa-edit"></i> 3 Comment</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- Soccer Section End -->
+    <!-- Galerie du Club Section Begin -->
+<!-- Carousel Section Begin -->
+<section class="carousel-section">
+    <div id="soccerCarousel" class="carousel slide" data-ride="carousel">
+        <!-- Indicators -->
+        <ol class="carousel-indicators">
+            <li data-target="#soccerCarousel" data-slide-to="0" class="active"></li>
+            <li data-target="#soccerCarousel" data-slide-to="1"></li>
+            <li data-target="#soccerCarousel" data-slide-to="2"></li>
+            <li data-target="#soccerCarousel" data-slide-to="3"></li>
+        </ol>
 
-    <!-- Latest Section Begin -->
-    <section class="latest-section">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-8">
-                    <div class="section-title latest-title">
-                        <h3>Latest <span>News</span></h3>
-                        <ul>
-                            <li>All</li>
-                            <li>World Cup</li>
-                            <li>Champions</li>
-                            <li>MLS</li>
-                        </ul>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-6">
-                            <div class="news-item left-news">
-                                <div class="ni-pic set-bg" data-setbg="img/news/latest-b.jpg">
-                                    <div class="ni-tag">Soccer</div>
-                                </div>
-                                <div class="ni-text">
-                                    <h4><a href="#">Once You Learn These Hard Truths About Life, You'll Become</a></h4>
-                                    <ul>
-                                        <li><i class="fa fa-calendar"></i> May 19, 2019</li>
-                                        <li><i class="fa fa-edit"></i> 3 Comment</li>
-                                    </ul>
-                                    <p>It’s that time again when people start thinking about their New Years
-                                        Resolutions. Usually they involve, losing weight, quitting smoking, and joining
-                                        a gym, just to mention a few.</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="news-item">
-                                <div class="ni-pic">
-                                    <img src="img/news/ln-1.jpg" alt="">
-                                </div>
-                                <div class="ni-text">
-                                    <h5><a href="#">How To Quit Smoking Using Zyban</a></h5>
-                                    <ul>
-                                        <li><i class="fa fa-calendar"></i> May 19, 2019</li>
-                                        <li><i class="fa fa-edit"></i> 3 Comment</li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <div class="news-item">
-                                <div class="ni-pic">
-                                    <img src="img/news/ln-2.jpg" alt="">
-                                </div>
-                                <div class="ni-text">
-                                    <h5><a href="#">Decorate For Less With Art Posters</a></h5>
-                                    <ul>
-                                        <li><i class="fa fa-calendar"></i> May 19, 2019</li>
-                                        <li><i class="fa fa-edit"></i> 3 Comment</li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <div class="news-item">
-                                <div class="ni-pic">
-                                    <img src="img/news/ln-3.jpg" alt="">
-                                </div>
-                                <div class="ni-text">
-                                    <h5><a href="#">Home Business Advertising Ideas</a></h5>
-                                    <ul>
-                                        <li><i class="fa fa-calendar"></i> May 19, 2019</li>
-                                        <li><i class="fa fa-edit"></i> 3 Comment</li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <div class="news-item">
-                                <div class="ni-pic">
-                                    <img src="img/news/ln-4.jpg" alt="">
-                                </div>
-                                <div class="ni-text">
-                                    <h5><a href="#">Lasik Doesn T Stop Your Eyes From Aging</a></h5>
-                                    <ul>
-                                        <li><i class="fa fa-calendar"></i> May 19, 2019</li>
-                                        <li><i class="fa fa-edit"></i> 3 Comment</li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+        <!-- Carousel items -->
+        <div class="carousel-inner">
+            <!-- First slide -->
+            <div class="carousel-item active">
+                <img class="d-block w-100" src="img/soccer/soccer-1.jpg" alt="Victoire contre les Rivaux Historiques">
+                <div class="carousel-caption d-none d-md-block">
+                    <h5>Victoire contre les Rivaux Historiques</h5>
+                    <p>20 Août 2024</p>
                 </div>
-                <div class="col-lg-4">
-                    <div class="section-title">
-                        <h3>Club <span>Ranking</span></h3>
-                    </div>
-                    <div class="points-table">
-                        <table>
-                            <thead>
-                                <tr>
-                                    <th class="th-o">Pos</th>
-                                    <th>Team</th>
-                                    <th class="th-o">P</th>
-                                    <th class="th-o">W</th>
-                                    <th class="th-o">L</th>
-                                    <th class="th-o">PTS</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>1</td>
-                                    <td class="team-name">
-                                        <img src="img/flag/flag-1.jpg" alt="">
-                                        <span>Afghanis</span>
-                                    </td>
-                                    <td>22</td>
-                                    <td>2</td>
-                                    <td>5</td>
-                                    <td>72</td>
-                                </tr>
-                                <tr>
-                                    <td>2</td>
-                                    <td class="team-name">
-                                        <img src="img/flag/flag-2.jpg" alt="">
-                                        <span>Australia</span>
-                                    </td>
-                                    <td>20</td>
-                                    <td>3</td>
-                                    <td>4</td>
-                                    <td>71</td>
-                                </tr>
-                                <tr>
-                                    <td>3</td>
-                                    <td class="team-name">
-                                        <img src="img/flag/flag-3.jpg" alt="">
-                                        <span>Qatar</span>
-                                    </td>
-                                    <td>18</td>
-                                    <td>4</td>
-                                    <td>4</td>
-                                    <td>68</td>
-                                </tr>
-                                <tr>
-                                    <td>4</td>
-                                    <td class="team-name">
-                                        <img src="img/flag/flag-4.jpg" alt="">
-                                        <span>Cambodia</span>
-                                    </td>
-                                    <td>17</td>
-                                    <td>2</td>
-                                    <td>7</td>
-                                    <td>64</td>
-                                </tr>
-                                <tr>
-                                    <td>5</td>
-                                    <td class="team-name">
-                                        <img src="img/flag/flag-5.jpg" alt="">
-                                        <span>Uzbekistan</span>
-                                    </td>
-                                    <td>17</td>
-                                    <td>2</td>
-                                    <td>6</td>
-                                    <td>60</td>
-                                </tr>
-                                <tr>
-                                    <td>6</td>
-                                    <td class="team-name">
-                                        <img src="img/flag/flag-6.jpg" alt="">
-                                        <span>Turkme</span>
-                                    </td>
-                                    <td>161</td>
-                                    <td>1</td>
-                                    <td>8</td>
-                                    <td>57</td>
-                                </tr>
-                                <tr>
-                                    <td>7</td>
-                                    <td class="team-name">
-                                        <img src="img/flag/flag-7.jpg" alt="">
-                                        <span>Sri Lanka</span>
-                                    </td>
-                                    <td>15</td>
-                                    <td>4</td>
-                                    <td>8</td>
-                                    <td>52</td>
-                                </tr>
-                                <tr>
-                                    <td>8</td>
-                                    <td class="team-name">
-                                        <img src="img/flag/flag-8.jpg" alt="">
-                                        <span>Myanmar</span>
-                                    </td>
-                                    <td>14</td>
-                                    <td>3</td>
-                                    <td>7</td>
-                                    <td>48</td>
-                                </tr>
-                            </tbody>
-                        </table>
-                        <a href="#" class="p-all">View All</a>
-                    </div>
+            </div>
+            <!-- Second slide -->
+            <div class="carousel-item">
+                <img class="d-block w-100" src="img/soccer/soccer-3.jpg" alt="Séance d'Entraînement Intense">
+                <div class="carousel-caption d-none d-md-block">
+                    <h5>Séance d'Entraînement Intense</h5>
+                    <p>18 Août 2024</p>
+                </div>
+            </div>
+            <!-- Third slide -->
+            <div class="carousel-item">
+                <img class="d-block w-100" src="img/soccer/soccer-3.jpg" alt="L'Ambiance des Supporters lors du Derby">
+                <div class="carousel-caption d-none d-md-block">
+                    <h5>L'Ambiance des Supporters lors du Derby</h5>
+                    <p>15 Août 2024</p>
+                </div>
+            </div>
+            <!-- Fourth slide -->
+            <div class="carousel-item">
+                <img class="d-block w-100" src="img/soccer/soccer-3.jpg" alt="Journée Portes Ouvertes du Club">
+                <div class="carousel-caption d-none d-md-block">
+                    <h5>Journée Portes Ouvertes du Club</h5>
+                    <p>10 Août 2024</p>
                 </div>
             </div>
         </div>
-    </section>
-    <!-- Latest Section End -->
+
+        <!-- Controls -->
+        <a class="carousel-control-prev" href="#soccerCarousel" role="button" data-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="sr-only">Précédent</span>
+        </a>
+        <a class="carousel-control-next" href="#soccerCarousel" role="button" data-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="sr-only">Suivant</span>
+        </a>
+    </div>
+</section>
+<!-- Carousel Section End -->
+
+<!-- Galerie du Club Section End -->
+
+<section class="latest-section">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8">
+                <div class="section-title latest-title">
+                    <h3>Latest <span>News</span></h3>
+                    <ul>
+                        <li>All</li>
+                        <li>League Belge</li>
+                        <li>Championnats</li>
+                    </ul>
+                </div>
+                <!-- <div class="row">
+                 @isset($latestNews['articles'])
+                    @foreach($latestNews['articles'] as $news)
+                    <div class="col-md-6">
+                        <div class="news-item left-news">
+                            <div class="ni-pic set-bg" style="background-image: url('{{ $news['urlToImage'] }}');">
+                                <div class="ni-tag">{{ $news['source']['name'] }}</div>
+                            </div>
+                            <div class="ni-text">
+                                <h4><a href="{{ $news['url'] }}" target="_blank">{{ $news['title'] }}</a></h4>
+                                <ul>
+                                    <li><i class="fa fa-calendar"></i> {{ \Carbon\Carbon::parse($news['publishedAt'])->format('M d, Y') }}</li>
+                                    <li><i class="fa fa-edit"></i> {{ $news['author'] ?? 'Unknown' }}</li>
+                                </ul>
+                                <p>{{ $news['description'] }}</p>
+                            </div>
+                        </div>
+                    </div>
+                    @endforeach
+                    @else
+                    <p>Aucune actualité disponible pour le moment.</p>
+                    @endisset
+                </div> -->
+            </div>
+            <div class="col-lg-4">
+                <div class="section-title">
+                    <h3>Club <span>Ranking</span></h3>
+                </div>
+                <div class="points-table">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th class="th-o">Pos</th>
+                                <th>Team</th>
+                                <th class="th-o">P</th>
+                                <th class="th-o">W</th>
+                                <th class="th-o">L</th>
+                                <th class="th-o">PTS</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!-- Add your ranking data here -->
+                            <tr>    <!-- Example row -->
+                                <td>1</td>
+                                <td>Royal Fc</td>
+                                <td>3</td>
+                                <td>5</td>
+                                <td>0</td>
+                                <td>0</td>
+                            </tr>
+                            <tr>    <!-- Example row -->
+                                <td>2</td>
+                                <td>Anderlecht</td>
+                                <td>0</td>
+                                <td>0</td>
+                                <td>0</td>
+                                <td>0</td>
+                            </tr>
+                            
+                        </tbody>
+                    </table>
+                    <a href="#" class="p-all">View All</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Latest Section End -->
 
     <!-- Video Section Begin -->
     <section class="video-section">
@@ -516,162 +420,4 @@
     </section>
     <!-- Video Section End -->
 
-    <!-- Popular News Section Begin -->
-    <section class="popular-section">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-8">
-                    <div class="section-title">
-                        <h3>Popular <span>Post</span></h3>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-6">
-                            <div class="news-item popular-item set-bg" data-setbg="img/news/popular-b.jpg">
-                                <div class="ni-tag tenis">Tenis</div>
-                                <div class="ni-text">
-                                    <h5><a href="#">England reach World Cup last 16 with hard-fought win over
-                                            Argentina</a></h5>
-                                    <ul>
-                                        <li><i class="fa fa-calendar"></i> May 19, 2019</li>
-                                        <li><i class="fa fa-edit"></i> 3 Comment</li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <div class="news-item">
-                                <div class="ni-pic">
-                                    <img src="img/news/ln-1.jpg" alt="">
-                                </div>
-                                <div class="ni-text">
-                                    <h5><a href="#">There’s a great history of the winner Sandia</a></h5>
-                                    <ul>
-                                        <li><i class="fa fa-calendar"></i> May 19, 2019</li>
-                                        <li><i class="fa fa-edit"></i> 3 Comment</li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <div class="news-item">
-                                <div class="ni-pic">
-                                    <img src="img/news/ln-2.jpg" alt="">
-                                </div>
-                                <div class="ni-text">
-                                    <h5><a href="#">It’ll be a tough game and a physical game</a></h5>
-                                    <ul>
-                                        <li><i class="fa fa-calendar"></i> May 19, 2019</li>
-                                        <li><i class="fa fa-edit"></i> 3 Comment</li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <div class="news-item">
-                                <div class="ni-pic">
-                                    <img src="img/news/ln-3.jpg" alt="">
-                                </div>
-                                <div class="ni-text">
-                                    <h5><a href="#">If we don’t score we can’t get frustrated</a></h5>
-                                    <ul>
-                                        <li><i class="fa fa-calendar"></i> May 19, 2019</li>
-                                        <li><i class="fa fa-edit"></i> 3 Comment</li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="news-item popular-item set-bg" data-setbg="img/news/popular-b.jpg">
-                                <div class="ni-tag football">Football</div>
-                                <div class="ni-text">
-                                    <h5><a href="#">We are playing history and Argentina at the World Cup, says Phil
-                                            Neville</a></h5>
-                                    <ul>
-                                        <li><i class="fa fa-calendar"></i> May 19, 2019</li>
-                                        <li><i class="fa fa-edit"></i> 3 Comment</li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <div class="news-item">
-                                <div class="ni-pic">
-                                    <img src="img/news/ln-5.jpg" alt="">
-                                </div>
-                                <div class="ni-text">
-                                    <h5><a href="#">Le Havre does have a growing fan club</a></h5>
-                                    <ul>
-                                        <li><i class="fa fa-calendar"></i> May 19, 2019</li>
-                                        <li><i class="fa fa-edit"></i> 3 Comment</li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <div class="news-item">
-                                <div class="ni-pic">
-                                    <img src="img/news/ln-6.jpg" alt="">
-                                </div>
-                                <div class="ni-text">
-                                    <h5><a href="#">It will be hard to break them down</a></h5>
-                                    <ul>
-                                        <li><i class="fa fa-calendar"></i> May 19, 2019</li>
-                                        <li><i class="fa fa-edit"></i> 3 Comment</li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <div class="news-item">
-                                <div class="ni-pic">
-                                    <img src="img/news/ln-7.jpg" alt="">
-                                </div>
-                                <div class="ni-text">
-                                    <h5><a href="#">We’ve never seen them as organised </a></h5>
-                                    <ul>
-                                        <li><i class="fa fa-calendar"></i> May 19, 2019</li>
-                                        <li><i class="fa fa-edit"></i> 3 Comment</li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4">
-                    <div class="section-title">
-                        <h3>Follow <span>Us</span></h3>
-                    </div>
-                    <div class="follow-links">
-                        <ul>
-                            <li class="facebook">
-                                <i class="fa fa-facebook"></i>
-                                <div class="fl-name">Facebook</div>
-                                <span class="fl-fan">2.530 Fans</span>
-                            </li>
-                            <li class="twitter">
-                                <i class="fa fa-twitter"></i>
-                                <div class="fl-name">Twitter</div>
-                                <span class="fl-fan">2.046 Fans</span>
-                            </li>
-                            <li class="google">
-                                <i class="fa fa-google"></i>
-                                <div class="fl-name">Google</div>
-                                <span class="fl-fan">1.170 Fans</span>
-                            </li>
-                        </ul>
-                    </div>
-                    <div class="vote-option set-bg" data-setbg="img/news/vote-bg.jpg">
-                        <div class="vo-text">
-                            <h5>In your opinion, which country will win this year</h5>
-                            <div class="vt-item">
-                                <input type="radio" name="like-team" id="one">
-                                <label for="one">Germany</label>
-                            </div>
-                            <div class="vt-item">
-                                <input type="radio" name="like-team" id="two">
-                                <label for="two">Brazil</label>
-                            </div>
-                            <div class="vt-item">
-                                <input type="radio" name="like-team" id="three">
-                                <label for="three">Myanmar</label>
-                            </div>
-                            <div class="vt-item">
-                                <input type="radio" name="like-team" id="four">
-                                <label for="four">Argentina</label>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- Popular News Section End -->
-@endsection
+   @endsection

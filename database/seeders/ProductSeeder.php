@@ -4,20 +4,23 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
+use App\Models\Category;
 
 class ProductSeeder extends Seeder
 {
     public function run()
     {
-        $category = \App\Models\Category::first();
+        // Récupération des catégories
+        $maillotsCategory = Category::where('name', 'Maillots')->first();
+        $ballonsCategory = Category::where('name', 'Ballons')->first();
 
-        if ($category) {
-            $categoryId = $category->id;
-        } else {
-            // Gérer le cas où il n'y a pas de catégorie
-            $categoryId = null;
+        // Vérifier que les catégories existent
+        if (!$maillotsCategory || !$ballonsCategory) {
+            $this->command->error('Certaines catégories sont manquantes.');
+            return;
         }
 
+        // Insertion des produits
         DB::table('products')->insert([
             [
                 'name' => 'Maillot de football',
@@ -25,7 +28,7 @@ class ProductSeeder extends Seeder
                 'price' => 19.99,
                 'stock' => 10,
                 'image' => 'image1.png',
-                'category_id' => $categoryId, // Utilisez la valeur de $categoryId
+                'category_id' => $maillotsCategory->id, // Associe à la catégorie "Maillots"
                 'created_at' => now(),
                 'updated_at' => now(),
             ],
@@ -35,11 +38,40 @@ class ProductSeeder extends Seeder
                 'price' => 29.99,
                 'stock' => 5,
                 'image' => 'ballon.jpg',
-                'category_id' => $categoryId,
+                'category_id' => $ballonsCategory->id, // Associe à la catégorie "Ballons"
                 'created_at' => now(),
                 'updated_at' => now(),
             ],
-            // Ajoutez d'autres produits si nécessaire
+            [
+                'name' => 'Ballon de foot Real Madrid',
+                'description' => 'Ballon de foot de haut niveau',
+                'price' => 19.99,
+                'stock' => 5,
+                'image' => 'image1.png',
+                'category_id' => $ballonsCategory->id, // Associe à la catégorie "Ballons"
+                'created_at' => now(),
+                'updated_at' => now(),
+            ],
+            [
+                'name' => 'Maillot de foot Real Madrid',
+                'description' => 'Maillot de foot de haut niveau',
+                'price' => 50.99,
+                'stock' => 5,
+                'image' => 'image1.png',
+                'category_id' => $maillotsCategory->id, // Associe à la catégorie "Maillots"
+                'created_at' => now(),
+                'updated_at' => now(),
+            ],
+            [
+                'name' => 'Écharpe',
+                'description' => 'Écharpe de supporter',
+                'price' => 9.99,
+                'stock' => 5,
+                'image' => 'echarpe.jpg',
+                'category_id' => $accessoiresCategory->id, // Associe à la catégorie "Maillots"
+                'created_at' => now(),
+                'updated_at' => now(),
+            ],
         ]);
     }
 }

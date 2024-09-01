@@ -22,7 +22,12 @@ class LoginController extends Controller
         if (Auth::attempt($credentials)) {
             $request->session()->regenerate();
 
-            return redirect()->intended('/index'); // Rediriger vers l'index après la connexion
+            // Générer un token Sanctum pour l'utilisateur
+            $user = Auth::user();
+            $token = $user->createToken('API Token')->plainTextToken;
+
+            // Redirection vers l'index avec le token d'API
+            return redirect()->intended('/index')->with('token', $token);
         }
 
         return back()->withErrors([

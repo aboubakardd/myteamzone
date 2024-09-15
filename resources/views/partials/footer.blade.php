@@ -9,9 +9,9 @@
                         <a href="{{ route('home') }}"><img src="{{ asset('img/logo.png') }}" alt="Logo"></a>
                     </div>
                     <ul>
-                        <li><i class="fa fa-envelope"></i> contact@votresite.com</li>
-                        <li><i class="fa fa-phone"></i> +(33) 123 456 789</li>
-                        <li><i class="fa fa-map-marker"></i> 123 Rue de l'Exemple, Paris, France</li>
+                        <li><i class="fa fa-envelope"></i> contact@myteamzone.com</li>
+                        <li><i class="fa fa-phone"></i> +(32) 123 456 789</li>
+                        <li><i class="fa fa-map-marker"></i> Rue Royal 7, Bruxelles</li>
                     </ul>
                     <div class="fs-social">
                         <a href="#"><i class="fa fa-facebook"></i></a>

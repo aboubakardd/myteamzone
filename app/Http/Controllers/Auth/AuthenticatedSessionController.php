@@ -29,6 +29,25 @@ class AuthenticatedSessionController extends Controller
         $request->session()->regenerate();
 
         return redirect()->intended(route('dashboard', absolute: false));
+
+        // Valider les informations de connexion
+    $request->validate([
+        'email' => ['required', 'email'],
+        'password' => ['required'],
+    ]);
+
+    // Authentifier l'utilisateur
+    if (auth()->attempt($request->only('email', 'password'))) {
+        $request->session()->regenerate();
+
+        // Redirection après authentification réussie
+        return redirect()->intended('/index');  // Redirection vers la page d'accueil
+    }
+
+    // Si l'authentification échoue
+    return back()->withErrors([
+        'email' => 'Les informations d\'identification fournies sont incorrectes.',
+    ]);
     }
 
     /**
@@ -42,6 +61,6 @@ class AuthenticatedSessionController extends Controller
 
         $request->session()->regenerateToken();
 
-        return redirect('/');
+        return redirect('/index');
     }
 }

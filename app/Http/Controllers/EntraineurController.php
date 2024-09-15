@@ -6,7 +6,7 @@ use App\Models\Entraineur;
 use Illuminate\Http\Request;
 use Spatie\Permission\Models\Role;
 use Spatie\Permission\Models\Permission;
-
+use Illuminate\Support\Facades\Auth;
 
 class EntraineurController extends Controller
 {
@@ -32,6 +32,9 @@ class EntraineurController extends Controller
     public function create()
     {
         //
+        if (!Auth::user()->hasRole('admin')) {
+            abort(403, 'Accès interdit');
+        }
         return view('entraineurs.create');
     }
 
@@ -66,6 +69,9 @@ class EntraineurController extends Controller
     public function edit(Entraineur $entraineur)
     {
         //
+        if (!Auth::user()->hasRole('admin')) {
+            abort(403, 'Accès interdit');
+        }
         return view('entraineurs.edit', compact('entraineur'));
     }
 
@@ -75,6 +81,10 @@ class EntraineurController extends Controller
     public function update(Request $request, Entraineur $entraineur)
     {
         //
+        if (!Auth::user()->hasRole('admin')) {
+            abort(403, 'Accès interdit');
+        }
+
         $request->validate([
             'name' => 'required',
             'experience' => 'required',
@@ -91,6 +101,10 @@ class EntraineurController extends Controller
     public function destroy(Entraineur $entraineur)
     {
         //
+        if (!Auth::user()->hasRole('admin')) {
+            abort(403, 'Accès interdit');
+        }
+        
         $entraineur->delete();
 
         return redirect()->route('entraineurs.index')->with('success', 'Entraineur deleted successfully.');

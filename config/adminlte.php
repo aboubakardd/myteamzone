@@ -321,9 +321,16 @@ return [
         //Events
         [
             'text' => 'Events',
-            'url'  => 'events',
+            'url'  => 'admin/events',
             'can'  => 'manage events',
         ],
+
+        // //Stats
+        // [
+        //     'text' => 'Stats',
+        //     'url'  => 'admin/stats',
+        //     'can'  => 'manage stats',
+        // ],
         
         // Sidebar items:
         [

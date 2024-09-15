@@ -10,7 +10,22 @@
                         <ul>
                 @if (Route::has('login'))
                     @auth
-                        <li><a href="{{ url('/dashboard') }}">Dashboard</a></li>
+                        @role('admin') <!-- Lien pour l'admin seulement -->
+                            <li><a href="{{ url('/dashboard') }}">Dashboard</a></li>
+                        @endrole 
+                        <!-- Lien de profil -->
+                        <li><a href="{{ route('profile.edit') }}">Profil</a></li>
+                         <!-- Lien de déconnexion -->
+                         <li>
+    <a href="{{ route('logout') }}" 
+       onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+        Logout
+    </a>
+</li>
+<form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+    @csrf
+</form>
+
                     @else
                         <li><a href="{{ route('login') }}">Sign in</a></li>
                         @if (Route::has('register'))
@@ -46,8 +61,6 @@
                         <div class="nav-menu">
                             <ul class="main-menu">
                                 <li class="active"><a href="./index">Home</a></li>
-                                <li><a href="./club.html">Club</a></li>
-
                                 <li><a href="./contact.html">Contact Us</a></li>
 
                             @if (Route::has('login'))
@@ -66,6 +79,8 @@
                                             @endif
                                         </a>
                                     </li>
+                                    <li><a href="{{ route('orders.index') }}">Mes commandes</a></li>
+
 
                                     @php
                                         $enfants = auth()->user()->enfants;

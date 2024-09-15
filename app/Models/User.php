@@ -13,6 +13,7 @@ use App\Models\Joueur;
 use App\Models\orderDetails;
 
 
+
 class User extends Authenticatable
 {
     use HasFactory, Notifiable, HasRoles;

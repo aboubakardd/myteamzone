@@ -5,6 +5,9 @@ namespace App\Http\Controllers;
 use App\Models\Statistique;
 use App\Models\Joueur;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Spatie\Permission\Models\Role;
+use Spatie\Permission\Models\Permission;
 
 class StatistiqueController extends Controller
 {
@@ -16,6 +19,9 @@ class StatistiqueController extends Controller
 
     public function create(Joueur $joueur)
     {
+        if (!Auth::user()->hasRole('admin')) {
+            abort(403, 'Accès interdit');
+        }
         return view('statistiques.create', compact('joueur'));
     }
 

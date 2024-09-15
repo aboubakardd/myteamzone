@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Models\Event;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Spatie\Permission\Models\Role;
+use Spatie\Permission\Models\Permission;
 
 class EventController extends Controller
 {
@@ -15,6 +18,9 @@ class EventController extends Controller
 
     public function create()
     {
+        if (!Auth::user()->hasRole('admin')) {
+            abort(403, 'Accès interdit');
+        }
         return view('events.create');
     }
 
@@ -35,6 +41,10 @@ class EventController extends Controller
 
     public function edit(Event $event)
     {
+        if (!Auth::user()->hasRole('admin')) {
+            abort(403, 'Accès interdit');
+        }
+
         return view('events.edit', compact('event'));
     }
 
@@ -55,6 +65,10 @@ class EventController extends Controller
 
     public function destroy(Event $event)
     {
+        if (!Auth::user()->hasRole('admin')) {
+            abort(403, 'Accès interdit');
+        }
+        
         $event->delete();
 
         return redirect()->route('events.index')->with('success', 'Événement supprimé avec succès.');

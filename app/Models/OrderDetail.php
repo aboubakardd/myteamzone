@@ -7,14 +7,22 @@ use Illuminate\Database\Eloquent\Model;
 use App\Models\Order;
 use App\Models\Product;
 
-class OrderDetail extends Model
+class Order extends Model
 {
     use HasFactory;
 
-    public function order()
-{
-    return $this->belongsTo(Order::class);
-}
+    protected $fillable = [
+        'status',
+        'charge_id',
+        'total',
+    ];
+
+    // Définir les relations
+    public function orderDetails()
+    {
+        return $this->hasMany(OrderDetail::class);
+    }
+
 
 public function product()
 {

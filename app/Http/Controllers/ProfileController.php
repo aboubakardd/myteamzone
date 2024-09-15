@@ -37,6 +37,26 @@ class ProfileController extends Controller
         return Redirect::route('profile.edit')->with('status', 'profile-updated');
     }
 
+    public function updatePicture(Request $request): RedirectResponse
+{
+    $request->validate([
+        'profile_picture' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
+    ]);
+
+    $user = $request->user();
+
+    if ($request->hasFile('profile_picture')) {
+        $image = $request->file('profile_picture');
+        $imageName = time() . '.' . $image->getClientOriginalExtension();
+        $image->move(public_path('images/profile'), $imageName);
+        $user->profile_picture_url = 'images/profile/' . $imageName;
+        $user->save();
+    }
+
+    return Redirect::route('profile.edit')->with('status', 'profile-picture-updated');
+}
+
+
     /**
      * Delete the user's account.
      */

@@ -68,7 +68,7 @@ class ProductSeeder extends Seeder
                 'price' => 9.99,
                 'stock' => 5,
                 'image' => 'echarpe.jpg',
-                'category_id' => $accessoiresCategory->id, // Associe à la catégorie "Maillots"
+                'category_id' => $maillotsCategory->id, // Associe à la catégorie "Maillots"
                 'created_at' => now(),
                 'updated_at' => now(),
             ],

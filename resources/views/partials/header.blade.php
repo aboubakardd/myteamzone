@@ -11,7 +11,7 @@
                 @if (Route::has('login'))
                     @auth
                         @role('admin') <!-- Lien pour l'admin seulement -->
-                            <li><a href="{{ url('/dashboard') }}">Dashboard</a></li>
+                            <li><a href="{{ url('/dashboard') }}">Tableau de bord</a></li>
                         @endrole 
                         <!-- Lien de profil -->
                         <li><a href="{{ route('profile.edit') }}">Profil</a></li>
@@ -27,9 +27,9 @@
 </form>
 
                     @else
-                        <li><a href="{{ route('login') }}">Sign in</a></li>
+                        <li><a href="{{ route('login') }}">Connexion</a></li>
                         @if (Route::has('register'))
-                            <li><a href="{{ route('register') }}">Register</a></li>
+                            <li><a href="{{ route('register') }}">Inscription</a></li>
                             <li><a href="{{ route('register.parent') }}">Inscription Parent</a></li>
                         @endif
                     @endauth
@@ -54,14 +54,13 @@
                 <div class="row">
                     <div class="col-lg-2">
                         <div class="logo">
-                            <img src="img/logo.png" alt="">
+                            <img src="img/logo2.png" alt="" width="100px">
                         </div>
                     </div>
                     <div class="col-lg-10">
                         <div class="nav-menu">
                             <ul class="main-menu">
-                                <li class="active"><a href="./index">Home</a></li>
-                                <li><a href="./contact.html">Contact Us</a></li>
+                                <li class="active"><a href="./index">Accueil</a></li>
 
                             @if (Route::has('login'))
                                 @auth

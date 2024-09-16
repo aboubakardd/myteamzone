@@ -71,7 +71,7 @@
             <div class="row">
                 <div class="col-lg-6">
                     <div class="ms-content">
-                        <h4>Next Match</h4>
+                        <h4>Prochaines Matchs</h4>
                         <div class="mc-table">
                             <table>
                                 <tbody>
@@ -137,7 +137,7 @@
                 </div>
                 <div class="col-lg-6">
                     <div class="ms-content">
-                        <h4>Recent Results</h4>
+                        <h4>Resultats recentes</h4>
                         <div class="mc-table">
                             <table>
                                 <tbody>
@@ -306,6 +306,7 @@
                     <p>Aucune actualité disponible pour le moment.</p>
                     @endisset
                 </div> -->
+                PARTIE ACTU FOOT AVEC API OU FLUX RSS
             </div>
             <div class="col-lg-4">
                 <div class="section-title">
@@ -315,8 +316,8 @@
                     <table>
                         <thead>
                             <tr>
-                                <th class="th-o">Pos</th>
-                                <th>Team</th>
+                                <th class="th-o"></th>
+                                <th>Classement</th>
                                 <th class="th-o">P</th>
                                 <th class="th-o">W</th>
                                 <th class="th-o">L</th>
@@ -329,19 +330,50 @@
                                 <td>1</td>
                                 <td>Royal Fc</td>
                                 <td>3</td>
-                                <td>5</td>
+                                <td>3</td>
                                 <td>0</td>
-                                <td>0</td>
+                                <td>9</td>
                             </tr>
-                            <tr>    <!-- Example row -->
+                            <tr>    
                                 <td>2</td>
                                 <td>Anderlecht</td>
-                                <td>0</td>
-                                <td>0</td>
-                                <td>0</td>
-                                <td>0</td>
+                                <td>3</td>
+                                <td>2</td>
+                                <td>1</td>
+                                <td>6</td>
                             </tr>
-                            
+                            <tr>    
+                                <td>3</td>
+                                <td>Charleroi</td>
+                                <td>3</td>
+                                <td>1</td>
+                                <td>2</td>
+                                <td>3</td>
+                            </tr>
+                            <tr>    
+                                <td>4</td>
+                                <td>Union saint gilloise</td>
+                                <td>3</td>
+                                <td>1</td>
+                                <td>2</td>
+                                <td>3</td>
+                            </tr>
+                            <tr>    
+                                <td>5</td>
+                                <td>Ixelles</td>
+                                <td>3</td>
+                                <td>1</td>
+                                <td>2</td>
+                                <td>3</td>
+                            </tr>
+                            <!-- <tr>    
+                                <td>6</td>
+                                <td>Molembeek</td>
+                                <td>3</td>
+                                <td>1</td>
+                                <td>2</td>
+                                <td>3</td>
+                            </tr> -->
                         </tbody>
                     </table>
                     <a href="#" class="p-all">View All</a>
@@ -367,9 +399,9 @@
                     <div class="col-lg-3">
                         <div class="video-item set-bg" data-setbg="img/videos/video-1.jpg">
                             <div class="vi-title">
-                                <h5>A World Of Infinite Opportunities</h5>
+                                
                             </div>
-                            <a href="https://www.youtube.com/watch?v=dhYOPzcsbGM" class="play-btn video-popup"><img
+                            <a href="https://www.youtube.com/watch?v=8DshMndRnvI" class="play-btn video-popup"><img
                                     src="img/videos/play.png" alt=""></a>
                             <div class="vi-time">11:13</div>
                         </div>
@@ -377,9 +409,9 @@
                     <div class="col-lg-3">
                         <div class="video-item set-bg" data-setbg="img/videos/video-2.jpg">
                             <div class="vi-title">
-                                <h5>Video Games Playing With Imagination</h5>
+                                <h5>Academy - Passing & Receiving Football Training Practice</h5>
                             </div>
-                            <a href="https://www.youtube.com/watch?v=dhYOPzcsbGM" class="play-btn video-popup"><img
+                            <a href="https://www.youtube.com/watch?v=1-jsz-rOqYs" class="play-btn video-popup"><img
                                     src="img/videos/play.png" alt=""></a>
                             <div class="vi-time">11:13</div>
                         </div>
@@ -387,9 +419,9 @@
                     <div class="col-lg-3">
                         <div class="video-item set-bg" data-setbg="img/videos/video-3.jpg">
                             <div class="vi-title">
-                                <h5>Home Audio Recording For Everyone</h5>
+                                <h5>Des exercices tactiques en football</h5>
                             </div>
-                            <a href="https://www.youtube.com/watch?v=dhYOPzcsbGM" class="play-btn video-popup"><img
+                            <a href="https://www.youtube.com/watch?v=BBG_P_RSLNs" class="play-btn video-popup"><img
                                     src="img/videos/play.png" alt=""></a>
                             <div class="vi-time">11:13</div>
                         </div>
@@ -397,9 +429,9 @@
                     <div class="col-lg-3">
                         <div class="video-item set-bg" data-setbg="img/videos/video-4.jpg">
                             <div class="vi-title">
-                                <h5>What If They Let You Run The Hubble</h5>
+                                <h5>Match de foot</h5>
                             </div>
-                            <a href="https://www.youtube.com/watch?v=dhYOPzcsbGM" class="play-btn video-popup"><img
+                            <a href="https://www.youtube.com/watch?v=mzPfb4cShUc" class="play-btn video-popup"><img
                                     src="img/videos/play.png" alt=""></a>
                             <div class="vi-time">11:13</div>
                         </div>

@@ -54,7 +54,7 @@
             <div class="row">
                 <div class="col-lg-12">
                     <div class="co-text">
-                        <p>&copy; <script>document.write(new Date().getFullYear());</script> Tous droits réservés | Ce site est conçu avec <i class="fa fa-heart" aria-hidden="true"></i> par [Votre Nom ou Nom de l'entreprise]</p>
+                        <p>&copy; <script>document.write(new Date().getFullYear());</script> Tous droits réservés | Ce site est conçu avec <i class="fa fa-heart" aria-hidden="true"></i> par MyTeamZone</p>
                     </div>
                     <div class="co-widget">
                         <ul>

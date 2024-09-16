@@ -23,7 +23,7 @@ class ProductSeeder extends Seeder
         // Insertion des produits
         DB::table('products')->insert([
             [
-                'name' => 'Maillot de football',
+                'name' => 'Maillot de match',
                 'description' => 'Maillot de football de haut niveau',
                 'price' => 19.99,
                 'stock' => 10,
@@ -33,9 +33,19 @@ class ProductSeeder extends Seeder
                 'updated_at' => now(),
             ],
             [
+                'name' => 'Maillot de match version 2',
+                'description' => 'Maillot de foot de haut niveau',
+                'price' => 29.99,
+                'stock' => 5,
+                'image' => 'maillot2.jpeg',
+                'category_id' => $maillotsCategory->id, // Associe à la catégorie "Ballons"
+                'created_at' => now(),
+                'updated_at' => now(),
+            ],
+            [
                 'name' => 'Ballon de foot',
                 'description' => 'Ballon de foot de haut niveau',
-                'price' => 29.99,
+                'price' => 19.99,
                 'stock' => 5,
                 'image' => 'ballon.jpg',
                 'category_id' => $ballonsCategory->id, // Associe à la catégorie "Ballons"
@@ -43,21 +53,11 @@ class ProductSeeder extends Seeder
                 'updated_at' => now(),
             ],
             [
-                'name' => 'Ballon de foot Real Madrid',
-                'description' => 'Ballon de foot de haut niveau',
-                'price' => 19.99,
-                'stock' => 5,
-                'image' => 'image1.png',
-                'category_id' => $ballonsCategory->id, // Associe à la catégorie "Ballons"
-                'created_at' => now(),
-                'updated_at' => now(),
-            ],
-            [
-                'name' => 'Maillot de foot Real Madrid',
+                'name' => 'Maillot de foot exterieur', 
                 'description' => 'Maillot de foot de haut niveau',
                 'price' => 50.99,
                 'stock' => 5,
-                'image' => 'image1.png',
+                'image' => 'maillot.jpg',
                 'category_id' => $maillotsCategory->id, // Associe à la catégorie "Maillots"
                 'created_at' => now(),
                 'updated_at' => now(),

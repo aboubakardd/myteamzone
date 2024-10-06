@@ -49,7 +49,7 @@ class ProfileController extends Controller
         $image = $request->file('profile_picture');
         $imageName = time() . '.' . $image->getClientOriginalExtension();
         $image->move(public_path('images/profile'), $imageName);
-        $user->profile_picture_url = 'images/profile/' . $imageName;
+        $user->profile_photo_path = 'images/profile/' . $imageName;
         $user->save();
     }
 

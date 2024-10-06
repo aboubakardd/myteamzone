@@ -7,7 +7,7 @@
     <div class="row">
         <div class="col-md-4">
             <div class="profile-picture mb-4">
-                <img src="{{ $user->profile_picture_url ? $user->profile_picture_url : 'https://via.placeholder.com/150' }}" alt="Photo de Profil" class="img-fluid rounded-circle">
+                <img src="{{ $user->profile_photo_path ? $user->profile_photo_path : 'https://via.placeholder.com/150' }}" alt="Photo de Profil" class="img-fluid rounded-circle">
                 <form method="POST" action="{{ route('profile.updatePicture') }}" enctype="multipart/form-data">
                     @csrf
                     <div class="form-group mt-2">

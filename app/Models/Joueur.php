@@ -31,4 +31,5 @@ class Joueur extends Model
         return $this->belongsTo(Parente::class);
     }
     
+    
 }

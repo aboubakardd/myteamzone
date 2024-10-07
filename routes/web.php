@@ -65,6 +65,10 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::post('conversations', [ConversationController::class, 'store'])->name('conversations.store');
 });
 
+
+Route::get('/joueurs-public', [JoueurController::class, 'indexPublic'])->name('joueurs.public');
+
+
 // Route::middleware(['role:admin'])->group(function () {
 //     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
 //     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');

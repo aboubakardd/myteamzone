@@ -65,6 +65,7 @@
                             @if (Route::has('login'))
                                 @auth
                                     <li><a href="{{ route('public.events.index') }}">Événements</a></li>
+                                    <li><a href="{{ route('joueurs.public') }}">Joueurs & Statistiques</a></li> <!-- Lien ajouté -->
                                     <li><a href="{{ route('conversations.index') }}">Conversations</a></li>
                                     <li class="nav-item">
                                             <a class="nav-link" href="{{ route('shop.index') }}">Boutique</a> <!-- Lien vers la boutique -->
@@ -81,16 +82,7 @@
                                     <li><a href="{{ route('orders.index') }}">Mes commandes</a></li>
 
 
-                                    @php
-                                        $enfants = auth()->user()->enfants;
-                                    @endphp
-                                    @if($enfants->isEmpty())
-                                        <li>Aucun enfant trouvé</li>
-                                    @else
-                                        @foreach ($enfants as $enfant)
-                                            <li><a href="{{ route('parentes.stats', $enfant->id) }}">Statistiques de {{ $enfant->name }}</a></li>
-                                        @endforeach
-                                    @endif
+                                
                                 @endauth
                             @endif
 

@@ -92,4 +92,12 @@ class JoueurController extends Controller
 
         return redirect()->route('joueurs.index')->with('success', 'Joueur deleted successfully.');
     }
+
+
+    public function indexPublic()
+{
+    $joueurs = Joueur::with('statistiques')->get(); // Récupérer les joueurs avec leurs statistiques
+    return view('joueurs.public', compact('joueurs'));
+}
+
 }

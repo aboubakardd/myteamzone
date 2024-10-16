@@ -114,7 +114,7 @@ Route::post('/order', [OrderController::class, 'store'])->name('order.store');
 Route::get('/order/{order}', [OrderController::class, 'show'])->name('order.show');
 Route::get('/order/confirmation/{orderId}', [OrderController::class, 'confirmation'])->name('order.confirmation');
 Route::post('/order/{orderId}/cancel', [OrderController::class, 'cancelOrder'])->name('order.cancel');
-Route::post('/order/cancel/{orderId}', [OrderController::class, 'cancelOrder'])->name('order.cancel');
+
 Route::get('/orders', [OrderController::class, 'index'])->name('orders.index');
 
 });

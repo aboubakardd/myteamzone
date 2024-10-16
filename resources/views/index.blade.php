@@ -276,41 +276,84 @@
         <div class="row">
             <div class="col-lg-8">
                 <div class="section-title latest-title">
-                    <h3>Latest <span>News</span></h3>
+                    <h3> <span>Actualites</span></h3>
                     <ul>
                         <li>All</li>
                         <li>League Belge</li>
                         <li>Championnats</li>
                     </ul>
                 </div>
-                <!-- <div class="row">
-                 @isset($latestNews['articles'])
-                    @foreach($latestNews['articles'] as $news)
-                    <div class="col-md-6">
-                        <div class="news-item left-news">
-                            <div class="ni-pic set-bg" style="background-image: url('{{ $news['urlToImage'] }}');">
-                                <div class="ni-tag">{{ $news['source']['name'] }}</div>
+                <div class="row">
+                        <div class="col-md-6">
+                            <div class="news-item left-news">
+                                <div class="ni-pic set-bg" data-setbg="img/news/latest-b.jpg">
+                                    <div class="ni-tag">Soccer</div>
+                                </div>
+                                <div class="ni-text">
+                                    <h4><a href="https://www.lequipe.fr/Football/Actualites/le-nouveau-championnat/1287654" target="_blank">Le nouveau championnat fait ses débuts en France</a></h4>
+                                    <ul>
+                                        <li><i class="fa fa-calendar"></i> 15 Octobre, 2024</li>
+                                        <li><i class="fa fa-edit"></i> 5 Commentaires</li>
+                                    </ul>
+                                    <p>Le championnat national commence cette semaine avec de nouvelles équipes prêtes à relever le défi. Découvrez les équipes favorites cette année.</p>
+                                </div>
                             </div>
-                            <div class="ni-text">
-                                <h4><a href="{{ $news['url'] }}" target="_blank">{{ $news['title'] }}</a></h4>
-                                <ul>
-                                    <li><i class="fa fa-calendar"></i> {{ \Carbon\Carbon::parse($news['publishedAt'])->format('M d, Y') }}</li>
-                                    <li><i class="fa fa-edit"></i> {{ $news['author'] ?? 'Unknown' }}</li>
-                                </ul>
-                                <p>{{ $news['description'] }}</p>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="news-item">
+                                <div class="ni-pic">
+                                    <img src="img/news/ln-1.jpg" alt="">
+                                </div>
+                                <div class="ni-text">
+                                <h5><a href="https://www.footmercato.net/actualites/mercato" target="_blank">Les transferts clés du mercato d'été</a></h5>
+                                    <ul>
+                                        <li><i class="fa fa-calendar"></i> 10 Octobre, 2024</li>
+                                        <li><i class="fa fa-edit"></i> 12 Commentaires</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="news-item">
+                                <div class="ni-pic">
+                                    <img src="img/news/ln-2.jpg" alt="">
+                                </div>
+                                <div class="ni-text">
+                                <h5><a href="https://www.rmc.fr/football/le-guide-des-competitions-2024" target="_blank">Le guide des compétitions européennes pour 2024</a></h5>
+                                    <ul>
+                                        <li><i class="fa fa-calendar"></i> 5 Octobre, 2024</li>
+                                        <li><i class="fa fa-edit"></i> 7 Commentaires</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="news-item">
+                                <div class="ni-pic">
+                                    <img src="img/news/ln-3.jpg" alt="">
+                                </div>
+                                <div class="ni-text">
+                                <h5><a href="https://www.sofoot.com/actualites/ligue-1-le-match-du-weekend" target="_blank">Ligue 1 : Le match du weekend à ne pas manquer</a></h5>
+                                    <ul>
+                                        <li><i class="fa fa-calendar"></i> 3 Octobre, 2024</li>
+                                        <li><i class="fa fa-edit"></i> 8 Commentaires</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="news-item">
+                                <div class="ni-pic">
+                                    <img src="img/news/ln-4.jpg" alt="">
+                                </div>
+                                <div class="ni-text">
+                                <h5><a href="https://www.lequipe.fr/football/le-classement-actuel-de-ligue-1" target="_blank">Classement actuel de la Ligue 1</a></h5>
+                                    <ul>
+                                        <li><i class="fa fa-calendar"></i> 1 Octobre, 2024</li>
+                                        <li><i class="fa fa-edit"></i> 15 Commentaires</li>
+                                    </ul>
+                                </div>
                             </div>
                         </div>
                     </div>
-                    @endforeach
-                    @else
-                    <p>Aucune actualité disponible pour le moment.</p>
-                    @endisset
-                </div> -->
-                PARTIE ACTU FOOT AVEC API OU FLUX RSS
-            </div>
+                </div>
             <div class="col-lg-4">
                 <div class="section-title">
-                    <h3>Club <span>Ranking</span></h3>
+                    <h3> <span>Classement</span></h3>
                 </div>
                 <div class="points-table">
                     <table>
@@ -390,7 +433,7 @@
             <div class="row">
                 <div class="col-lg-12">
                     <div class="section-title">
-                        <h3>Hot <span>Videos</span></h3>
+                        <h3> <span>Videos</span></h3>
                     </div>
                 </div>
             </div>
@@ -403,17 +446,17 @@
                             </div>
                             <a href="https://www.youtube.com/watch?v=8DshMndRnvI" class="play-btn video-popup"><img
                                     src="img/videos/play.png" alt=""></a>
-                            <div class="vi-time">11:13</div>
+                            <div class="vi-time">16:19</div>
                         </div>
                     </div>
                     <div class="col-lg-3">
                         <div class="video-item set-bg" data-setbg="img/videos/video-2.jpg">
                             <div class="vi-title">
-                                <h5>Academy - Passing & Receiving Football Training Practice</h5>
+                                <h5>Entraînement</h5>
                             </div>
                             <a href="https://www.youtube.com/watch?v=1-jsz-rOqYs" class="play-btn video-popup"><img
                                     src="img/videos/play.png" alt=""></a>
-                            <div class="vi-time">11:13</div>
+                            <div class="vi-time">9:10</div>
                         </div>
                     </div>
                     <div class="col-lg-3">
@@ -423,7 +466,7 @@
                             </div>
                             <a href="https://www.youtube.com/watch?v=BBG_P_RSLNs" class="play-btn video-popup"><img
                                     src="img/videos/play.png" alt=""></a>
-                            <div class="vi-time">11:13</div>
+                            <div class="vi-time">11:15</div>
                         </div>
                     </div>
                     <div class="col-lg-3">
@@ -433,19 +476,10 @@
                             </div>
                             <a href="https://www.youtube.com/watch?v=mzPfb4cShUc" class="play-btn video-popup"><img
                                     src="img/videos/play.png" alt=""></a>
-                            <div class="vi-time">11:13</div>
+                            <div class="vi-time">44:13</div>
                         </div>
                     </div>
-                    <div class="col-lg-3">
-                        <div class="video-item set-bg" data-setbg="img/videos/video-4.jpg">
-                            <div class="vi-title">
-                                <h5>What If They Let You Run The Hubble</h5>
-                            </div>
-                            <a href="https://www.youtube.com/watch?v=dhYOPzcsbGM" class="play-btn video-popup"><img
-                                    src="img/videos/play.png" alt=""></a>
-                            <div class="vi-time">11:13</div>
-                        </div>
-                    </div>
+                    
                 </div>
             </div>
         </div>

@@ -79,8 +79,7 @@
                                             @endif
                                         </a>
                                     </li>
-                                    <li><a href="{{ route('orders.index') }}">Mes commandes</a></li>
-
+                                
 
                                 
                                 @endauth

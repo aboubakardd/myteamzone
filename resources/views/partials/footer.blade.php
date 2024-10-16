@@ -6,7 +6,7 @@
             <div class="col-lg-3 col-md-6">
                 <div class="fs-logo">
                     <div class="logo">
-                        <a href="{{ route('home') }}"><img src="{{ asset('img/logo.png') }}" alt="Logo"></a>
+                    <img src="img/logo2.png" alt="" width="100px">
                     </div>
                     <ul>
                         <li><i class="fa fa-envelope"></i> contact@myteamzone.com</li>
